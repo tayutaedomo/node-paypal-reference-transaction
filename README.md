@@ -69,4 +69,20 @@ Access [http://localhost:3000/transaction](http://localhost:3000/transaction) on
 ![transaction 2](https://raw.githubusercontent.com/tayutaedomo/node-paypal-reference-transaction/images/public/images/2016-06-08_capture_transaction_2.png)
 
 
+# References
+## How to
+- https://developer.paypal.com/docs/classic/express-checkout/ht_ec-refTrans-SetEC-DoRefTrans-curl-etc/
+
+## API Docs
+- SetExpressCheckout
+  - https://developer.paypal.com/docs/classic/api/merchant/SetExpressCheckout_API_Operation_NVP/
+
+- CreateBillingAgreement
+  - https://developer.paypal.com/docs/classic/api/merchant/CreateBillingAgreement_API_Operation_NVP/
+
+- DoReferenceTransaction
+  - https://developer.paypal.com/docs/classic/api/merchant/DoReferenceTransaction_API_Operation_NVP/
+
+
+
 
