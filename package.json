@@ -16,6 +16,7 @@
     "ejs": "~2.3.3",
     "ejs-mate": "^2.3.0",
     "express": "~4.13.1",
+    "js-beautify": "^1.6.3",
     "morgan": "~1.6.1",
     "paypal-ec2": "^0.3.0",
     "serve-favicon": "~2.3.0"
