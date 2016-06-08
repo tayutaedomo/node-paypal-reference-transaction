@@ -1,0 +1,47 @@
+<% layout('layout') %>
+
+<div class="row">
+  <div class="col-lg-6">
+  <h1><%= title %></h1>
+  </div>
+</div>
+
+<form method="post" action="/checkout">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="form-group">
+        <label>Currency: </label>
+        <select name="currency">
+          <option value="USD" selected="selected">USD</option>
+          <option value="JPY">JPY</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Cancel URL: </label>
+        <input type="text" name="cancel_url" value="http://localhost:3000/checkout/callback_cancel" size=64>
+      </div>
+      <div class="form-group">
+        <label>Return URL: </label>
+        <input type="text" name="return_url" value="http://localhost:3000/checkout/callback_success" size=64>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-info btn-lg">Submit</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="row">
+  <div class="col-lg-6">
+    <% if (JSON.stringify(error) !== '{}') { %>
+      <label>API call Failed</label>
+      <pre class="bg-danger"><code><%= error.message %></code></pre>
+    <% } %>
+
+    <% if (JSON.stringify(data) !== '{}') { %>
+      <label>API call succeeded</label>
+      <pre class="bg-success"><code><%= data.message %></code></pre>
+    <% } %>
+  </div>
+</div>
+
