@@ -34,6 +34,7 @@ export PAYPAL_SIGNATURE=<your signature for NVP API>
 `git clone` and start app.
 ```
 $ git clone git@github.com:tayutaedomo/node-paypal-subscription.git
+$ cd node-paypal-subscription
 $ npm install
 $ bin/www
 ```

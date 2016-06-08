@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-lg-6">
-  <h1><%= title %></h1>
+    <h1><%= title %></h1>
   </div>
 </div>
 
@@ -25,7 +25,7 @@
         <input type="text" name="return_url" value="http://localhost:3000/checkout/callback_success" size=64>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-info btn-lg">Submit</button>
+        <button type="submit" class="btn btn-info btn-lg">Do SetExpressCheckout</button>
       </div>
     </div>
   </div>
@@ -41,6 +41,19 @@
     <% if (JSON.stringify(data) !== '{}') { %>
       <label>API call succeeded</label>
       <pre class="bg-success"><code><%= data.message %></code></pre>
+
+      <% if (data.redirect_url) { %>
+        <div>
+          <a href="<%= data.redirect_url %>" target="_blank">
+            <label type="submit" class="btn btn-info btn-lg">Redirect to PayPal</label>
+          </a>
+        </div>
+      <% } %>
+
+      <% if (data.params) { %>
+        <label>Request Parameters</label>
+        <pre><code><%= data.params %></code></pre>
+      <% } %>
     <% } %>
   </div>
 </div>
