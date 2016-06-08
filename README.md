@@ -40,3 +40,33 @@ $ bin/www
 ```
 Your app should now be running on http://localhost:3000.
 
+
+# Operations
+## SetExpressCheckout
+Access [http://localhost:3000/checkout](http://localhost:3000/checkout) on your browser.
+
+![checkout 1](https://raw.githubusercontent.com/tayutaedomo/node-paypal-reference-transaction/images/public/images/2016-06-08_capture_checkout_1.png)
+
+![checkout 2](https://raw.githubusercontent.com/tayutaedomo/node-paypal-reference-transaction/images/public/images/2016-06-08_capture_checkout_2.png)
+
+## Callback from PayPal
+![checkout 3](https://raw.githubusercontent.com/tayutaedomo/node-paypal-reference-transaction/images/public/images/2016-06-08_capture_checkout_3.png)
+
+
+## CreateBillingAgreement
+Access [http://localhost:3000/agreement](http://localhost:3000/agreement) on your browser.
+
+![agreement 1](https://raw.githubusercontent.com/tayutaedomo/node-paypal-reference-transaction/images/public/images/2016-06-08_capture_agreement_1.png)
+
+![agreement 2](https://raw.githubusercontent.com/tayutaedomo/node-paypal-reference-transaction/images/public/images/2016-06-08_capture_agreement_2.png)
+
+
+## DoReferenceTransaction
+Access [http://localhost:3000/transaction](http://localhost:3000/transaction) on your browser.
+
+![transaction 1](https://raw.githubusercontent.com/tayutaedomo/node-paypal-reference-transaction/images/public/images/2016-06-08_capture_transaction_1.png)
+
+![transaction 2](https://raw.githubusercontent.com/tayutaedomo/node-paypal-reference-transaction/images/public/images/2016-06-08_capture_transaction_2.png)
+
+
+
