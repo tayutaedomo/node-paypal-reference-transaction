@@ -1,0 +1,58 @@
+<% layout('layout') %>
+
+<div class="row">
+  <div class="col-lg-6">
+    <h1><%= title %></h1>
+  </div>
+</div>
+
+<form method="post" action="/transaction">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="form-group">
+        <label>Token: </label>
+        <input type="text" name="billing_agreement_id" size="64" placeholder="B-XXXXXXXXXXXXXXXXX">
+      </div>
+      <div class="form-group">
+        <label>Amount: </label>
+        <input type="text" name="amount" value="10.0">
+      </div>
+      <div class="form-group">
+        <label>Currency: </label>
+        <select name="currency">
+          <option value="USD" selected="selected">USD</option>
+          <option value="JPY">JPY</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Payment Action: </label>
+        <select name="payment_action">
+          <option value="SALE" selected="selected">Sale</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-info btn-lg">Do ReferenceTransaction</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="row">
+  <div class="col-lg-6">
+    <% if (JSON.stringify(error) !== '{}') { %>
+      <label>API call Failed</label>
+      <pre class="bg-danger"><code><%= error.message %></code></pre>
+    <% } %>
+
+    <% if (JSON.stringify(data) !== '{}') { %>
+      <label>API call succeeded</label>
+      <pre class="bg-success"><code><%= data.message %></code></pre>
+
+      <% if (data.params) { %>
+        <label>Request Parameters</label>
+        <pre><code><%= data.params %></code></pre>
+      <% } %>
+    <% } %>
+  </div>
+</div>
+

@@ -123,6 +123,46 @@ router.post('/agreement', function(req, res, next) {
   });
 });
 
+router.get('/transaction', function(req, res, next) {
+  res.render('transaction', {
+    title: 'Reference Transaction',
+    error: {},
+    data: {}
+  });
+});
+
+router.post('/transaction', function(req, res, next) {
+  var ec = create_paypal_ec();
+
+  var params = {
+    'AMT': req.body.amount,
+    'CURRENCYCODE': req.body.currency,
+    'PAYMENTACTION': req.body.payment_action,
+    'REFERENCEID': req.body.billing_agreement_id
+  };
+  ec.do_reference_transaction(params, function(err, result) {
+    var error = {};
+    var data = {};
+
+    if (err) {
+      console.error(err);
+      error.message = beautify(JSON.stringify(err), { indent_size: 2 });
+    }
+
+    if (result) {
+      data.message = beautify(JSON.stringify(result), { indent_size: 2 });
+
+      data.params = beautify(JSON.stringify(params), { indent_size: 2 });
+    }
+
+    res.render('transaction', {
+      title: 'Reference Transaction Post',
+      error: error,
+      data: data
+    });
+  });
+});
+
 
 module.exports = router;
 
