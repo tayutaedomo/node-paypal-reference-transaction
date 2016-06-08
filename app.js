@@ -1,4 +1,5 @@
 var express = require('express');
+var engine = require('ejs-mate');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -10,6 +11,7 @@ var routes = require('./routes/index');
 var app = express();
 
 // view engine setup
+app.engine('ejs', engine);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
