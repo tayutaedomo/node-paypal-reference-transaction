@@ -13,7 +13,7 @@ function create_paypal_ec() {
   };
   var opts = {
     sandbox: process.env.PAYPAL_MODE != 'production',
-    version: process.env.PAYPAL_MODE || '86'
+    version: process.env.PAYPAL_API_VERSION || '86'
   };
 
   return new PayPalEC(cred, opts);
