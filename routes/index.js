@@ -40,6 +40,7 @@ router.post('/checkout', function(req, res, next) {
     'PAYMENTREQUEST_0_PAYMENTACTION': 'AUTHORIZATION',
     'PAYMENTREQUEST_0_AMT': 0,
     'PAYMENTREQUEST_0_CURRENCYCODE': req.body.currency,
+    'L_BILLINGAGREEMENTDESCRIPTION0': req.body.description,
     'L_BILLINGTYPE0': 'MerchantInitiatedBilling',
     'cancelUrl': req.body.cancel_url,
     'returnUrl': req.body.return_url

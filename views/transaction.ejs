@@ -1,41 +1,48 @@
 <% layout('layout') %>
 
+<h1><%= title %></h1>
+
 <div class="row">
-  <div class="col-lg-6">
-    <h1><%= title %></h1>
+  <div class="col-sm-12">
+    <form method="post" action="/transaction" class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Token</label>
+        <div class="col-sm-9">
+          <input type="text" name="billing_agreement_id" class="form-control"
+                 placeholder="B-XXXXXXXXXXXXXXXXX">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Amount</label>
+        <div class="col-sm-9">
+          <input type="text" name="amount" value="10.0" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Currency</label>
+        <div class="col-sm-9">
+          <select name="currency" class="form-control">
+            <option value="USD" selected="selected">USD</option>
+            <option value="JPY">JPY</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Payment Action</label>
+        <div class="col-sm-9">
+          <select name="payment_action" class="form-control">
+            <option value="SALE" selected="selected">Sale</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+          <button type="submit" class="btn btn-info btn-lg">Do ReferenceTransaction</button>
+        </div>
+      </div>
+    </form>
   </div>
 </div>
-
-<form method="post" action="/transaction">
-  <div class="row">
-    <div class="col-lg-6">
-      <div class="form-group">
-        <label>Token: </label>
-        <input type="text" name="billing_agreement_id" size="64" placeholder="B-XXXXXXXXXXXXXXXXX">
-      </div>
-      <div class="form-group">
-        <label>Amount: </label>
-        <input type="text" name="amount" value="10.0">
-      </div>
-      <div class="form-group">
-        <label>Currency: </label>
-        <select name="currency">
-          <option value="USD" selected="selected">USD</option>
-          <option value="JPY">JPY</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Payment Action: </label>
-        <select name="payment_action">
-          <option value="SALE" selected="selected">Sale</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-info btn-lg">Do ReferenceTransaction</button>
-      </div>
-    </div>
-  </div>
-</form>
 
 <div class="row">
   <div class="col-lg-6">
