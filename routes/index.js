@@ -164,6 +164,42 @@ router.post('/transaction', function(req, res, next) {
   });
 });
 
+router.get('/void', function(req, res, next) {
+  res.render('void', {
+    title: 'Void Order',
+    error: {},
+    data: {}
+  });
+});
+
+router.post('/void', function(req, res, next) {
+  var ec = create_paypal_ec();
+
+  var params = {
+    'AUTHORIZATIONID': req.body.transaction_id
+    //'NOTE': ''
+  };
+  ec.do_void(params, function(err, result) {
+    var error = {};
+    var data = {};
+
+    if (err) {
+      console.error(err);
+      error.message = beautify(err.toString(), { indent_size: 2 });
+    }
+
+    if (result) {
+      data.message = beautify(JSON.stringify(result), { indent_size: 2 });
+    }
+
+    res.render('void', {
+      title: 'Void Order Post',
+      error: error,
+      data: data
+    });
+  });
+});
+
 
 module.exports = router;
 
